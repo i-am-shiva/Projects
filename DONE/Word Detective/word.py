@@ -1,27 +1,21 @@
-# 5. 🧩 The Word Detective
-# Ask the user for a sentence.
-# Your program should find:
+sen = input("Enter a sentence: ")
 
-# Number of words
-# Longest word
-# Shortest word
-# Number of unique words
-# Most frequently occurring word
-# Number of vowels
-# Number of consonants
-sen= "Python is very beautiful language and Python is very Good"
 words = sen.split()
 nofwords = len(words)
+
 longword = ""
 shortword = ""
-sentencewords=[]
-shortest_lenght= float("inf")
+sentencewords = []
+shortest_lenght = float("inf")
 count = {}
+
 vowel_count = 0
 space_count = 0
 consonant_count = 0
+
 for eword in words:
     leng = len(eword)
+
     if len(longword) < leng:
         longword = eword
 
@@ -38,13 +32,18 @@ for eword in words:
         count[eword] = 1
 
 for char in sen:
-    if (char == "A" or char == "a" or char == "E" or char =="e" or char == "I" or char == "i" or char == "O" or char == "o" or char == "U" or char == "u"):
+    if (char == "A" or char == "a" or
+        char == "E" or char == "e" or
+        char == "I" or char == "i" or
+        char == "O" or char == "o" or
+        char == "U" or char == "u"):
+
         vowel_count += 1
 
-    elif(char == " "):
+    elif char == " ":
         space_count += 1
 
-    elif char.isalpha(): 
+    elif char.isalpha():
         consonant_count += 1
 
 mostword = ""
@@ -55,14 +54,11 @@ for word in count:
         mostcount = count[word]
         mostword = word
 
-
-
-
 print(f"No of Words : {nofwords}")
 print(f"Longest Word : {longword}")
 print(f"Shortest Word : {shortword}")
-print(f"Most Repeated word is {mostword} = {mostcount}")
-print("No of Vowels : ",vowel_count)
-print("No of Consonants : ",consonant_count)
-print("No of Spaces : ",space_count)
-
+print(f"No of Unique Words : {len(sentencewords)}")
+print(f"Most Repeated Word is {mostword} = {mostcount}")
+print("No of Vowels : ", vowel_count)
+print("No of Consonants : ", consonant_count)
+print("No of Spaces : ", space_count)
